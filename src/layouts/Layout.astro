@@ -1,0 +1,62 @@
+---
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/600.css';
+import '@fontsource/space-grotesk/400.css';
+import '@fontsource/space-grotesk/500.css';
+import '@fontsource/space-grotesk/600.css';
+import '../styles/global.css';
+import Icon from '../components/Icon.astro';
+interface Props { title?: string; description?: string; }
+const {title = 'Blaise Dushime Muhoza — AI Solutions Developer', description = 'Blaise Dushime Muhoza is an AI solutions developer and founder of WIMAZA Technologies in Kigali, Rwanda. Explore AI engineering, workflow automation, and modern web projects.'} = Astro.props;
+const base = import.meta.env.BASE_URL;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const image = new URL(`${base}images/blaise-portrait.webp`, Astro.site).href;
+const person = {'@context':'https://schema.org', '@type':'Person',name:'Blaise Dushime Muhoza',alternateName:'Viper',url:new URL(base,Astro.site).href,image,jobTitle:'AI Solutions Developer',description,email:'mailto:bdushime34@gmail.com',worksFor:{'@type':'Organization',name:'WIMAZA Technologies'},sameAs:['https://github.com/mantis-rei','https://www.linkedin.com/in/ukomeye/'],knowsAbout:['Artificial Intelligence','Prompt Engineering','Workflow Automation','Web Development','Cloud Computing'],address:{'@type':'PostalAddress',addressLocality:'Kigali',addressCountry:'RW'}};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#151613"/><meta name="description" content={description}/>
+    <title>{title}</title><link rel="canonical" href={canonical}/><link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`}/>
+    <meta property="og:type" content="website"/><meta property="og:site_name" content="Blaise Dushime Muhoza"/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/><meta property="og:image" content={image}/><meta property="og:image:alt" content="Portrait of Blaise Dushime Muhoza"/>
+    <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content={title}/><meta name="twitter:description" content={description}/><meta name="twitter:image" content={image}/>
+    <script type="application/ld+json" set:html={JSON.stringify(person)}/>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header"><div class="container header-inner">
+      <a href={base} class="brand" aria-label="Blaise home"><span class="brand-symbol">b<span>.</span></span><span>blaise<span class="brand-dot">.</span></span></a>
+      <nav aria-label="Main navigation" id="main-nav"><a href={`${base}#work`}>Selected work</a><a href={`${base}#expertise`}>Expertise</a><a href={`${base}#about`}>About me</a><a href={`${base}#contact`}>Contact</a></nav>
+      <a class="button button-small header-resume" href={`${base}blaise-dushime-cv.pdf`} target="_blank" rel="noopener noreferrer">Résumé <Icon name="download" size={16}/></a>
+      <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation"><span></span><span></span></button>
+    </div></header>
+    <main id="main"><slot/></main>
+    <footer class="site-footer container"><a href={base} class="brand"><span class="brand-symbol">b<span>.</span></span><span>Good ideas deserve to be built.</span></a><p>© {new Date().getFullYear()} Blaise Dushime Muhoza</p><a href="#main">Back to top</a></footer>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+      const nav = document.querySelector<HTMLElement>('#main-nav');
+      function closeMenu() { toggle?.setAttribute('aria-expanded', 'false'); toggle?.setAttribute('aria-label','Open navigation'); nav?.classList.remove('is-open'); }
+      toggle?.addEventListener('click', () => {const open = toggle.getAttribute('aria-expanded') !== 'true'; toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');nav?.classList.toggle('is-open',open);});
+      nav?.querySelectorAll('a').forEach(link => link.addEventListener('click',closeMenu));
+      document.addEventListener('keydown',event => {if(event.key === 'Escape') {closeMenu();toggle?.focus();}});
+      document.querySelector<HTMLButtonElement>('[data-copy-email]')?.addEventListener('click', async (event) => {
+        const button = event.currentTarget as HTMLButtonElement;
+        const status = document.querySelector<HTMLElement>('#copy-status');
+        try {await navigator.clipboard.writeText('bdushime34@gmail.com'); if(status) status.textContent='Email address copied.';button.classList.add('copied');setTimeout(()=>{button.classList.remove('copied');if(status)status.textContent='';},3000);}
+        catch {if(status) status.textContent='Email: bdushime34@gmail.com';}
+      });
+      document.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach(button => button.addEventListener('click',()=> {
+        const category=button.dataset.filter;
+        document.querySelectorAll('[data-filter]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
+        document.querySelectorAll<HTMLElement>('[data-project]').forEach(project=>{project.hidden=category!=='all'&&!project.dataset.project?.includes(category||'');});
+        const status=document.querySelector('#filter-status');
+        if(status)status.textContent=`${document.querySelectorAll('[data-project]:not([hidden])').length} projects shown`;
+      }));
+      const clock = document.querySelector<HTMLElement>('[data-kigali-time]');
+      function updateClock(){if(clock)clock.textContent=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'Africa/Kigali'}).format(new Date())+' CAT';}
+      updateClock();if(clock)setInterval(updateClock,60000);
+    </script>
+  </body>
+</html>
