@@ -28,7 +28,9 @@ netlify.toml sets BASE_PATH=/ and SITE_URL=https://viper1.netlify.app (the exist
 
 ## Vercel
 
-Import mantis-rei/web-repo using the Astro framework preset. The included vercel.json builds and verifies the static site and publishes dist. On Vercel, config/deployment.mjs uses the root path and the project's production hostname for canonical URLs and sitemap links. When assigning a different production alias or a custom domain, set SITE_URL to its full HTTPS origin in Vercel and redeploy. The requested dmb.vercel.app hostname was already serving another portfolio when checked; a different available hostname must be chosen.
+The requested production hostname is **muhoza-blaise.vercel.app**. It returned Vercel's DEPLOYMENT_NOT_FOUND response when checked; this does not reserve or guarantee the hostname. Account access is required to assign it and publish.
+
+Import mantis-rei/web-repo using the Astro framework preset and name the project muhoza-blaise. The included vercel.json builds and verifies the static site and publishes dist. On Vercel, config/deployment.mjs uses the root path and the project's production hostname for canonical URLs and sitemap links. Set SITE_URL=https://muhoza-blaise.vercel.app in Vercel for the chosen production alias, then deploy. If Vercel system hostname variables are unavailable, the configuration falls back to that requested origin.
 
 ## Content
 
