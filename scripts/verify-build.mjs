@@ -1,9 +1,9 @@
 import { readFile, readdir, stat } from 'node:fs/promises';
 import { join, resolve, extname } from 'node:path';
 import assert from 'node:assert/strict';
+import {deployment} from '../config/deployment.mjs';
 const root = resolve('dist');
-const base = process.env.BASE_PATH || '/web-repo';
-const site = process.env.SITE_URL || 'https://mantis-rei.github.io';
+const {base, site} = deployment;
 const prefix = base.endsWith('/') ? base : `${base}/`;
 async function files(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -39,4 +39,14 @@ const robots=await readFile(join(root,'robots.txt'),'utf8');
 assert.ok(robots.includes(`${site}${prefix}sitemap-index.xml`),'Robots must point to the correct sitemap');
 assert.ok((await stat(join(root,'blaise-dushime-cv.pdf'))).size>1000,'Résumé must be included');
 assert.ok((await stat(join(root,'images/blaise-portrait.webp'))).size<500000,'Portrait should be optimized');
-console.log(`Verified ${htmlFiles.length} HTML pages, all local links/assets, metadata, sitemap, robots, résumé, and portrait.`);
+const home = await readFile(join(root,'index.html'),'utf8');
+assert.ok(home.includes('https://pdfhost.io/v/eD8pKwPAVc_DMB_CV'),'The supplied CV must be linked');
+assert.ok(home.includes('Founder &amp; CEO') || home.includes('Founder & CEO'),'CEO role must be visible');
+for(const link of ['https://wimaza.vercel.app/','https://pezaas.vercel.app/','https://outreachhub-dc64f.web.app/','https://study-craft-ai-seven.vercel.app']) {
+  assert.ok(home.includes(`href="${link}"`), `Homepage needs the supplied link: ${link}`);
+}
+for(const name of ['pezaas','outreachhub']) {
+  assert.ok(home.includes(`images/${name}-preview.webp`),`${name} must use the real screenshot`);
+  assert.ok((await stat(join(root,`images/${name}-preview.webp`))).size < 1000000,`${name} preview should be optimized`);
+}
+console.log(`Verified ${htmlFiles.length} HTML pages, local assets, SEO, supplied project/company/CV links, real previews, résumé, and portrait.`);

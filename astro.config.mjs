@@ -1,9 +1,10 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import {deployment} from './config/deployment.mjs';
 
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://mantis-rei.github.io',
-  base: process.env.BASE_PATH || '/web-repo',
+  site: deployment.site,
+  base: deployment.base,
   output: 'static',
   trailingSlash: 'always',
   integrations: [sitemap()],

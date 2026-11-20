@@ -2,6 +2,7 @@ export type Project = {
   slug: string; title: string; category: string; description: string;
   tags: string[]; theme: string; label: string;
   github?: string; live?: string; intro: string;
+  preview?: { src: string; alt: string; width: number; height: number; cropTop?: number };
   challenge: string; approach: string; features: string[];
   source: string;
 };
@@ -21,22 +22,26 @@ export const projects: Project[] = [
   {
     slug: 'pezaas', title: 'Pezaas', category: 'WEB DEVELOPMENT',
     description: 'A locally focused social media growth platform, built for the Rwandan market.',
-    tags: ['Astro', 'JavaScript', 'Web design'], theme: 'pezaas', label: 'Product interface concept',
+    tags: ['Astro', 'JavaScript', 'Web design'], theme: 'pezaas', label: 'Pezaas website preview',
+    live: 'https://pezaas.vercel.app/',
+    preview: { src: 'images/pezaas-preview.webp', alt: 'Pezaas homepage with social media services, Rwandan franc pricing, and order tracking', width: 1800, height: 912 },
     intro: 'A social media growth panel developed under WIMAZA Technologies, with a web experience focused on a Rwandan audience.',
     challenge: 'A local digital product needs a clear presentation of its offering and an interface that feels relevant to its audience.',
     approach: 'The project combines an Astro-based web experience with a focused product identity and social media service presentation.',
     features: ['A social media growth service panel.', 'A product experience tailored to the Rwandan market.', 'Astro and JavaScript implementation.', 'Part of the WIMAZA Technologies project portfolio.'],
-    source: 'Project scope and technology are drawn from the supplied LinkedIn listing. The visual on this page is a presentation concept, not a live product screenshot.',
+    source: 'Project scope and technology are drawn from the supplied LinkedIn listing. The website screenshot and live project link were provided by Blaise.',
   },
   {
     slug: 'outreachhub', title: 'OutreachHub', category: 'AUTOMATION',
     description: 'Bringing lead generation and customer outreach into one focused workspace.',
-    tags: ['React', 'JavaScript', 'Lead generation'], theme: 'outreach', label: 'Outreach workflow concept',
+    tags: ['React', 'JavaScript', 'Lead generation'], theme: 'outreach', label: 'OutreachHub website preview',
+    live: 'https://outreachhub-dc64f.web.app/',
+    preview: { src: 'images/outreachhub-preview.webp', alt: 'OutreachHub workspace sign-in page for lead generation and customer outreach', width: 1800, height: 1013, cropTop: 10.7 },
     intro: 'A custom-built lead generation and customer outreach application that brings a business workflow into a dedicated web interface.',
     challenge: 'Prospecting and customer outreach can become fragmented when the workflow is spread across disconnected tools.',
     approach: 'I built a focused React application around lead generation and customer outreach, connecting the workflow through a consistent interface.',
     features: ['A dedicated lead generation workspace.', 'Customer outreach functionality.', 'A custom React and JavaScript interface.', 'A workflow-oriented approach to business software.'],
-    source: 'Project scope and technology are drawn from the supplied LinkedIn listing. The visual is a conceptual workflow illustration.',
+    source: 'Project scope and technology are drawn from the supplied LinkedIn listing. The website screenshot and live project link were provided by Blaise.',
   },
   {
     slug: 'veo-stream', title: 'VEO Stream', category: 'GENERATIVE AI',
