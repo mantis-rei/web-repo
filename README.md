@@ -32,6 +32,7 @@ netlify.toml sets BASE_PATH=/ and SITE_URL=https://viper1.netlify.app (the exist
 - src/data/projects.ts: project details, technologies, and destination links.
 - src/components/ProjectVisual.astro: custom presentation illustrations.
 - src/styles/global.css: design and responsive styles.
+- src/styles/redesign.css: reference-inspired rounded layout and the DCE2F0 / 50586C / FBEAEB / 7B9ACC color palette.
 - src/layouts/Layout.astro: navigation, footer, SEO, and interactions.
 - public/blaise-dushime-cv.pdf: original resume from this repository.
 - public/images/blaise-portrait.webp: optimized local copy of the supplied Cloudinary portrait.

@@ -6,6 +6,7 @@ import '@fontsource/space-grotesk/400.css';
 import '@fontsource/space-grotesk/500.css';
 import '@fontsource/space-grotesk/600.css';
 import '../styles/global.css';
+import '../styles/redesign.css';
 import Icon from '../components/Icon.astro';
 interface Props { title?: string; description?: string; }
 const {title = 'Blaise Dushime Muhoza — AI Solutions Developer', description = 'Blaise Dushime Muhoza is an AI solutions developer and founder of WIMAZA Technologies in Kigali, Rwanda. Explore AI engineering, workflow automation, and modern web projects.'} = Astro.props;
@@ -18,7 +19,7 @@ const person = {'@context':'https://schema.org', '@type':'Person',name:'Blaise D
 <html lang="en">
   <head>
     <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="theme-color" content="#151613"/><meta name="description" content={description}/>
+    <meta name="theme-color" content="#DCE2F0"/><meta name="description" content={description}/>
     <title>{title}</title><link rel="canonical" href={canonical}/><link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`}/>
     <meta property="og:type" content="website"/><meta property="og:site_name" content="Blaise Dushime Muhoza"/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/><meta property="og:image" content={image}/><meta property="og:image:alt" content="Portrait of Blaise Dushime Muhoza"/>
     <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content={title}/><meta name="twitter:description" content={description}/><meta name="twitter:image" content={image}/>
@@ -26,14 +27,23 @@ const person = {'@context':'https://schema.org', '@type':'Person',name:'Blaise D
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    <div class="site-shell">
     <header class="site-header"><div class="container header-inner">
       <a href={base} class="brand" aria-label="Blaise home"><span class="brand-symbol">b<span>.</span></span><span>blaise<span class="brand-dot">.</span></span></a>
-      <nav aria-label="Main navigation" id="main-nav"><a href={`${base}#work`}>Selected work</a><a href={`${base}#expertise`}>Expertise</a><a href={`${base}#about`}>About me</a><a href={`${base}#contact`}>Contact</a></nav>
+      <div class="profile-capsule"><div><span>Specialty</span><strong>AI & automation</strong></div><div><span>Based in</span><strong>Kigali, Rwanda</strong></div><div><span>Available for</span><strong>Good challenges</strong></div></div>
       <a class="button button-small header-resume" href={`${base}blaise-dushime-cv.pdf`} target="_blank" rel="noopener noreferrer">Résumé <Icon name="download" size={16}/></a>
       <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation"><span></span><span></span></button>
     </div></header>
+    <nav class="side-dock" aria-label="Main navigation" id="main-nav">
+      <a href={`${base}#main`} aria-label="Home" title="Home"><Icon name="home"/><span>Home</span></a>
+      <a href={`${base}#work`} aria-label="Selected work" title="Selected work"><Icon name="layers"/><span>Selected work</span></a>
+      <a href={`${base}#expertise`} aria-label="Expertise" title="Expertise"><Icon name="code"/><span>Expertise</span></a>
+      <a href={`${base}#about`} aria-label="About me" title="About me"><img src={`${base}images/blaise-portrait.webp`} alt="Blaise" width="32" height="32"/><span>About me</span></a>
+      <a href={`${base}#contact`} aria-label="Contact" title="Contact"><Icon name="mail"/><span>Contact</span></a>
+    </nav>
     <main id="main"><slot/></main>
     <footer class="site-footer container"><a href={base} class="brand"><span class="brand-symbol">b<span>.</span></span><span>Good ideas deserve to be built.</span></a><p>© {new Date().getFullYear()} Blaise Dushime Muhoza</p><a href="#main">Back to top</a></footer>
+    </div>
     <script>
       const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
       const nav = document.querySelector<HTMLElement>('#main-nav');
