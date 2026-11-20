@@ -20,7 +20,7 @@ The production build checks Astro and TypeScript first. Verification checks all 
 ## GitHub Pages
 
 Default target: https://mantis-rei.github.io/web-repo/
-Select Settings > Pages > Build and deployment > Source > GitHub Actions in the repository. The included workflow builds, verifies, and deploys pushes to main. Check the workflow outcome to confirm publication.
+Public deployment is opt-in. Select Settings > Pages > Build and deployment > Source > GitHub Actions in the repository, then create a repository Actions variable named PUBLISH_PORTFOLIO with value true. The workflow always builds and verifies pushes to main; its Pages configuration and deployment steps run only when this variable is true. Run the workflow manually after enabling publication. Check its outcome to confirm publication.
 
 ## Netlify or a custom domain
 
