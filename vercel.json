@@ -4,14 +4,6 @@
   "buildCommand": "npm run build && npm run verify",
   "outputDirectory": "dist",
   "trailingSlash": true,
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{"type": "host", "value": "viper-one-pink.vercel.app"}],
-      "destination": "https://muhoza-blaise.vercel.app/:path*",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
