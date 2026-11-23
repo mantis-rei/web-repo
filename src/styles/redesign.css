@@ -383,7 +383,7 @@ a:hover { color: var(--slate); }
 .hero-intro-card { bottom: 27px; border-radius: 36px; }
 .hero-intro-card:before { display: none; }
 .hero-portrait {
-  --portrait-angle: -13deg;
+  --portrait-angle: 13deg;
   top: 155px;
   right: 6%;
   bottom: auto;
@@ -397,7 +397,8 @@ a:hover { color: var(--slate); }
 .portrait-picture {
   border-radius: 50%;
   clip-path: ellipse(50% 50% at 50% 50%);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 48%, #000e 62%, #0006 82%, transparent 100%);
+  /* Feather the oval's perimeter, keeping the photograph's center opaque. */
+  mask-image: radial-gradient(ellipse closest-side at 50% 50%, #000 0%, #000 88%, #000c 95%, transparent 100%);
   transform: rotate(var(--portrait-angle));
   box-shadow: 0 24px 70px #50586c24;
   background: var(--blue);
@@ -406,7 +407,7 @@ a:hover { color: var(--slate); }
   object-position: center 20%;
   filter: saturate(.9);
   mix-blend-mode: normal;
-  transform: translate(var(--portrait-x, 0px), var(--portrait-y, 0px)) rotate(calc(0deg - var(--portrait-angle) + var(--portrait-tilt, 0deg))) scale(1.08);
+  transform: translate(var(--portrait-x, 0px), var(--portrait-y, 0px)) rotate(calc(0deg - var(--portrait-angle) + var(--portrait-tilt, 0deg))) scale(1.08) scaleX(-1);
   transition: transform .6s cubic-bezier(.2,.8,.2,1), filter .6s;
   will-change: transform;
 }
@@ -421,7 +422,7 @@ a:hover { color: var(--slate); }
   pointer-events: none;
   transition: transform 1.2s ease, opacity .4s;
 }
-.hero-portrait:hover .portrait-picture img { filter: saturate(1.08); transform: translate(var(--portrait-x, 0px), var(--portrait-y, 0px)) rotate(calc(0deg - var(--portrait-angle) + var(--portrait-tilt, 0deg))) scale(1.12); }
+.hero-portrait:hover .portrait-picture img { filter: saturate(1.08); transform: translate(var(--portrait-x, 0px), var(--portrait-y, 0px)) rotate(calc(0deg - var(--portrait-angle) + var(--portrait-tilt, 0deg))) scale(1.12) scaleX(-1); }
 .hero-portrait:hover .portrait-picture:after { opacity: 1; transform: translateX(110%); }
 @keyframes portrait-breathe { 0%,100% { transform: translateY(0) rotate(-.4deg); } 50% { transform: translateY(-8px) rotate(.4deg); } }
 .hero-profile-card {
@@ -501,7 +502,7 @@ a:hover { color: var(--slate); }
 @media (max-width:650px) {
   .site-shell { border-radius: 32px; }
   .hero { min-height: 1270px; border-radius: 28px; }
-  .hero-portrait { --portrait-angle: -10deg; top: 445px; right: 9%; bottom: auto; width: 82%; height: 550px; }
+  .hero-portrait { --portrait-angle: 10deg; top: 445px; right: 9%; bottom: auto; width: 82%; height: 550px; }
   .portrait-picture { border-radius: 50%; }
   .hero-profile-card { right: 15px; bottom: 25px; width: min(290px, calc(100% - 75px)); padding: 22px; border-radius: 30px; }
   .hero-profile-card { clip-path: url(#profile-card-cutout-mobile); }
@@ -521,7 +522,7 @@ a:hover { color: var(--slate); }
 @media (max-width:360px) { .hero { min-height: 1380px; } }
 @media (prefers-reduced-motion:reduce) {
   .hero-portrait { animation: none; }
-  .portrait-picture img, .hero-portrait:hover .portrait-picture img { transform: rotate(calc(0deg - var(--portrait-angle))) scale(1.08); transition: none; }
+  .portrait-picture img, .hero-portrait:hover .portrait-picture img { transform: rotate(calc(0deg - var(--portrait-angle))) scale(1.08) scaleX(-1); transition: none; }
   .portrait-picture:after { display: none; }
   .hero-profile-card:hover, .hero-intro-card:hover, .expertise-card:hover, .project-image-link:hover .project-screenshot-frame { transform: none; }
 }
