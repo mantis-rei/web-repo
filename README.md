@@ -1,52 +1,61 @@
-# Blaise Dushime Muhoza - Portfolio
+<div align="center">
 
-A professional portfolio focused on AI engineering, automation, web products, and cloud computing, built with Astro, TypeScript, and locally hosted DM Sans and Space Grotesk fonts. Includes six indexable project pages, direct live-project links, filters, mobile navigation, a CV link, email copying, and a Kigali clock. The hero uses a mirrored portrait in a D-shaped frame: its straight left edge fades while the right arc stays solid. Motion respects reduced-motion preferences.
+# Blaise Dushime Muhoza
 
-## Development
+**AI Solutions Developer · Founder & CEO, WIMAZA Technologies**
 
-Node.js 22.12+ required; Node 24 recommended.
+Building useful products with AI, workflow automation, and modern web technologies.<br/>
+Based in Kigali, Rwanda. Open to collaboration worldwide.
+
+[WIMAZA Technologies](https://wimaza.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/ukomeye/) · [View CV](https://pdfhost.io/v/eD8pKwPAVc_DMB_CV) · [Get in touch](mailto:bdushime34@gmail.com)
+
+[![Build and verification](https://github.com/mantis-rei/web-repo/actions/workflows/deploy.yml/badge.svg)](https://github.com/mantis-rei/web-repo/actions/workflows/deploy.yml)
+
+</div>
+
+![Portfolio preview: rounded blue and blush interface with a D-shaped portrait frame](docs/portfolio-preview.jpg)
+
+## The portfolio
+
+A responsive portfolio built with **Astro and TypeScript**, featuring six dedicated project pages, real product previews, and a visual identity in powder blue, slate, and blush. The portrait's D-shaped frame fades along its straight edge while keeping the arc crisp.
+
+Content is rendered as static HTML, with unique page metadata, social previews, structured data, and a sitemap. Local fonts, optimized images, accessible navigation, and reduced-motion support keep the experience considered across desktop and mobile.
+
+## Selected projects
+
+| Project | Focus | Explore |
+| --- | --- | --- |
+| **Easy Fine-Tuner** | Open-source model training with Python, Hugging Face, and LoRA | [Source](https://github.com/mantis-rei/Easy-fineTuner) |
+| **Pezaas** | An Astro-based social media services platform for Rwanda | [Live website](https://pezaas.vercel.app/) |
+| **OutreachHub** | A React workspace for lead generation and customer outreach | [Live website](https://outreachhub-dc64f.web.app/) |
+| **VEO Stream** | A Python and API-based cinematic video generation experience | Featured in the portfolio |
+| **Viper Trade Logger** | A React, TypeScript, and Firebase trading journal | [Live website](https://viper-td-logger.vercel.app) · [Source](https://github.com/mantis-rei/Viper-Td-Logger) |
+| **Study Craft AI** | Guided, step-by-step learning built with React and JavaScript | [Live website](https://study-craft-ai-seven.vercel.app/) · [Source](https://github.com/mantis-rei/Study-Craft-AI) |
+
+Pezaas and OutreachHub use supplied website screenshots. Other project visuals are presentation illustrations, identified on their detail pages.
+
+## Run locally
+
+Use Node.js 24, then:
 
 ```sh
 npm ci
 npm run dev
-npm run build
-npm run verify
-npm run preview
 ```
 
-The default local URL is http://127.0.0.1:4321/web-repo/.
-The production build checks Astro and TypeScript first. Verification checks all eight HTML pages, all local links/assets, SEO metadata, JSON-LD, sitemap, robots.txt, resume, and optimized portrait.
+Open [the local portfolio](http://127.0.0.1:4321/web-repo/).
 
-## GitHub Pages
+```sh
+npm run build
+npm run verify
+```
 
-Default target: https://mantis-rei.github.io/web-repo/
-Public deployment is opt-in. Select Settings > Pages > Build and deployment > Source > GitHub Actions in the repository, then create a repository Actions variable named PUBLISH_PORTFOLIO with value true. The workflow always builds and verifies pushes to main; its Pages configuration and deployment steps run only when this variable is true. Run the workflow manually after enabling publication. Check its outcome to confirm publication.
+The build checks Astro and TypeScript. Verification covers generated pages, local links and assets, metadata, project destinations, and the sitemap.
 
-## Netlify or a custom domain
+## Development and deployment
 
-netlify.toml sets BASE_PATH=/ and SITE_URL=https://viper1.netlify.app (the existing website on the GitHub profile). If the deployed hostname differs, update SITE_URL to that exact origin. For another host, set SITE_URL and BASE_PATH before building. Rebuild after changing these values so asset paths, canonical URLs, sitemap, and robots.txt match the destination.
+The same Astro source powers every deployment. Publish the generated `dist` directory to use the current design; the root `Index.html` is a preserved legacy reference.
 
-## Vercel
+Vercel configuration is included for the requested `muhoza-blaise.vercel.app` hostname. A deployment is live only after Vercel assigns the hostname and completes publication.
 
-The requested production hostname is **muhoza-blaise.vercel.app**. It returned Vercel's DEPLOYMENT_NOT_FOUND response when checked; this does not reserve or guarantee the hostname. Account access is required to assign it and publish.
-
-Import mantis-rei/web-repo using the Astro framework preset and name the project muhoza-blaise. The included vercel.json builds and verifies the static site and publishes dist. On Vercel, config/deployment.mjs uses the root path and the project's production hostname for canonical URLs and sitemap links. Set SITE_URL=https://muhoza-blaise.vercel.app in Vercel for the chosen production alias, then deploy. If Vercel system hostname variables are unavailable, the configuration falls back to that requested origin.
-
-## Content
-
-- src/pages/index.astro: profile, experience, expertise, and contact.
-- src/data/projects.ts: project details, technologies, and destination links.
-- src/data/profile.ts: the supplied CV and WIMAZA Technologies website links.
-- src/components/ProjectVisual.astro: custom presentation illustrations.
-- src/styles/global.css: design and responsive styles.
-- src/styles/redesign.css: reference-inspired rounded layout and the DCE2F0 / 50586C / FBEAEB / 7B9ACC color palette.
-- src/layouts/Layout.astro: navigation, footer, SEO, and interactions.
-- public/blaise-dushime-cv.pdf: original archived résumé retained; the visible CV links use the supplied PDF Host URL instead.
-- public/images/blaise-portrait.webp: optimized local copy of the supplied Cloudinary portrait.
-- public/images/pezaas-preview.webp and outreachhub-preview.webp: optimized copies of the supplied project screenshots. The OutreachHub browser chrome is cropped in CSS.
-
-Profile, education, WIMAZA role, Pezaas, OutreachHub, and VEO Stream use the supplied LinkedIn screenshots. Easy Fine-Tuner and Viper Trade Logger use their public GitHub READMEs. Study Craft AI uses the public repository description and README. The CEO role, company website, PDF Host CV, Pezaas and OutreachHub live URLs, and real screenshot previews were supplied directly by Blaise. The contact email comes from the previous portfolio.
-
-Pezaas and OutreachHub show supplied website screenshots. The other project artwork remains illustrative and is identified on detail pages. No unverified customer counts, testimonials, or performance metrics are included. Forked repositories are not presented as original work.
-
-SEO includes static HTML, unique titles/descriptions, canonical URLs, social metadata, Person JSON-LD, sitemap, and robots.txt. Indexing depends on the deployed URL and search engine crawlers.
+See the [development and deployment guide](docs/DEVELOPMENT.md) for hosting configuration, content editing, and project structure.
