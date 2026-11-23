@@ -1,5 +1,4 @@
 https://github.com/idush/viper-portfolio
-https://github.com/idush/viper-portfolio/tree/main/01-osint-toolkit
 https://github.com/idush/viper-portfolio/tree/main/02-viper-bot
 https://www.instagram.com/dush.blaise/
 https://leetcode.com/u/idush/

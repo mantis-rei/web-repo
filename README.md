@@ -1,6 +1,6 @@
 # Blaise Dushime Muhoza - Portfolio
 
-A professional portfolio built with Astro, TypeScript, and locally hosted DM Sans and Space Grotesk fonts. Includes six indexable project pages, direct live-project links, filters, mobile navigation, a CV link, email copying, and a Kigali clock. The hero uses an animated oval portrait and a concave card corner, with reduced-motion support.
+A professional portfolio focused on AI engineering, automation, web products, and cloud computing, built with Astro, TypeScript, and locally hosted DM Sans and Space Grotesk fonts. Includes six indexable project pages, direct live-project links, filters, mobile navigation, a CV link, email copying, and a Kigali clock. The hero uses a mirrored portrait in a D-shaped frame: its straight left edge fades while the right arc stays solid. Motion respects reduced-motion preferences.
 
 ## Development
 
@@ -41,7 +41,7 @@ Import mantis-rei/web-repo using the Astro framework preset and name the project
 - src/styles/global.css: design and responsive styles.
 - src/styles/redesign.css: reference-inspired rounded layout and the DCE2F0 / 50586C / FBEAEB / 7B9ACC color palette.
 - src/layouts/Layout.astro: navigation, footer, SEO, and interactions.
-- public/blaise-dushime-cv.pdf: original resume retained as an archive; the visible CV links use the supplied PDF Host URL.
+- public/blaise-dushime-cv.pdf: original archived résumé retained; the visible CV links use the supplied PDF Host URL instead.
 - public/images/blaise-portrait.webp: optimized local copy of the supplied Cloudinary portrait.
 - public/images/pezaas-preview.webp and outreachhub-preview.webp: optimized copies of the supplied project screenshots. The OutreachHub browser chrome is cropped in CSS.
 

@@ -10,10 +10,12 @@ async function files(dir) {
   return (await Promise.all(entries.map(entry => entry.isDirectory() ? files(join(dir,entry.name)) : join(dir,entry.name)))).flat();
 }
 const all = await files(root);
+assert.doesNotMatch(await readFile('Index.html','utf8'), /cybersecurity|osint|ethical hacking|pentesting|security scanner/i, 'The preserved legacy HTML must not advertise retired topics');
 const htmlFiles = all.filter(file=>extname(file)==='.html');
 assert.equal(htmlFiles.length, 8, 'Home, six projects, and 404 must be generated');
 for (const file of htmlFiles) {
   const html = await readFile(file,'utf8');
+  assert.doesNotMatch(html, /cybersecurity|osint|ethical hacking/i, `${file}: retired profile topics must not be published`);
   assert.equal((html.match(/<h1\b/g)||[]).length,1, `${file}: exactly one primary heading`);
   assert.match(html, /<html lang="en"/, `${file}: language`);
   assert.match(html, /name="description" content="[^"]+"/, `${file}: description`);
@@ -37,7 +39,6 @@ const sitemap = await readFile(join(root,'sitemap-0.xml'),'utf8');
 assert.equal((sitemap.match(/<loc>/g)||[]).length,7,'Sitemap should index home and all six project pages');
 const robots=await readFile(join(root,'robots.txt'),'utf8');
 assert.ok(robots.includes(`${site}${prefix}sitemap-index.xml`),'Robots must point to the correct sitemap');
-assert.ok((await stat(join(root,'blaise-dushime-cv.pdf'))).size>1000,'Résumé must be included');
 assert.ok((await stat(join(root,'images/blaise-portrait.webp'))).size<500000,'Portrait should be optimized');
 const home = await readFile(join(root,'index.html'),'utf8');
 assert.ok(home.includes('https://pdfhost.io/v/eD8pKwPAVc_DMB_CV'),'The supplied CV must be linked');

@@ -383,7 +383,7 @@ a:hover { color: var(--slate); }
 .hero-intro-card { bottom: 27px; border-radius: 36px; }
 .hero-intro-card:before { display: none; }
 .hero-portrait {
-  --portrait-angle: 13deg;
+  --portrait-angle: 0deg;
   top: 155px;
   right: 6%;
   bottom: auto;
@@ -395,10 +395,10 @@ a:hover { color: var(--slate); }
 .hero-copy { pointer-events: none; }
 .hero-copy > .eyebrow, .hero-copy > h1, .hero-copy > .hero-intro, .hero-actions { width: fit-content; max-width: 100%; pointer-events: auto; }
 .portrait-picture {
-  border-radius: 50%;
-  clip-path: ellipse(50% 50% at 50% 50%);
-  /* Feather the oval's perimeter, keeping the photograph's center opaque. */
-  mask-image: radial-gradient(ellipse closest-side at 50% 50%, #000 0%, #000 88%, #000c 95%, transparent 100%);
+  border-radius: 0 58% 58% 0 / 0 50% 50% 0;
+  clip-path: inset(0 round 0 58% 58% 0 / 0 50% 50% 0);
+  /* The straight stem fades; the entire right arc is outside this fade. */
+  mask-image: linear-gradient(to right, transparent 0%, #0009 10%, #000 20%, #000 100%);
   transform: rotate(var(--portrait-angle));
   box-shadow: 0 24px 70px #50586c24;
   background: var(--blue);
@@ -424,7 +424,7 @@ a:hover { color: var(--slate); }
 }
 .hero-portrait:hover .portrait-picture img { filter: saturate(1.08); transform: translate(var(--portrait-x, 0px), var(--portrait-y, 0px)) rotate(calc(0deg - var(--portrait-angle) + var(--portrait-tilt, 0deg))) scale(1.12) scaleX(-1); }
 .hero-portrait:hover .portrait-picture:after { opacity: 1; transform: translateX(110%); }
-@keyframes portrait-breathe { 0%,100% { transform: translateY(0) rotate(-.4deg); } 50% { transform: translateY(-8px) rotate(.4deg); } }
+@keyframes portrait-breathe { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 .hero-profile-card {
   width: 340px;
   padding: 26px;
@@ -502,8 +502,8 @@ a:hover { color: var(--slate); }
 @media (max-width:650px) {
   .site-shell { border-radius: 32px; }
   .hero { min-height: 1270px; border-radius: 28px; }
-  .hero-portrait { --portrait-angle: 10deg; top: 445px; right: 9%; bottom: auto; width: 82%; height: 550px; }
-  .portrait-picture { border-radius: 50%; }
+  .hero-portrait { --portrait-angle: 0deg; top: 445px; right: 9%; bottom: auto; width: 82%; height: 550px; }
+  .portrait-picture { border-radius: 0 58% 58% 0 / 0 50% 50% 0; }
   .hero-profile-card { right: 15px; bottom: 25px; width: min(290px, calc(100% - 75px)); padding: 22px; border-radius: 30px; }
   .hero-profile-card { clip-path: url(#profile-card-cutout-mobile); }
   .hero-profile-card .profile-card-heading { min-height: 82px; padding-left: 74px; padding-right: 38px; }
