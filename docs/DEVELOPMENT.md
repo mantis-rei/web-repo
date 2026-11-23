@@ -30,9 +30,9 @@ netlify.toml sets BASE_PATH=/ and SITE_URL=https://viper1.netlify.app (the exist
 
 ## Vercel
 
-The live production URL is **https://viper-one-pink.vercel.app/**, deployed by the GitHub-linked Vercel project **viper**. The profile card uses its original rounded corners, without the former concave cutout.
+The live production URL is **https://muhoza-blaise.vercel.app/**, deployed by the GitHub-linked Vercel project **viper**. The previous viper-one-pink.vercel.app hostname redirects permanently to this address, preserving paths and query strings. The profile card uses its original rounded corners, without the former concave cutout.
 
-The included vercel.json builds and verifies the static site and publishes dist. On Vercel, config/deployment.mjs uses the root path and the project's production hostname for canonical URLs and sitemap links. For a custom build outside Vercel, set SITE_URL=https://viper-one-pink.vercel.app and BASE_PATH=/ before building. The previously requested muhoza-blaise.vercel.app alias has not been assigned.
+The included vercel.json builds and verifies the static site and publishes dist. Production SITE_URL is set to https://muhoza-blaise.vercel.app in Vercel so canonical URLs, social metadata, robots.txt, and the sitemap use the selected domain. For a custom build outside Vercel, set SITE_URL=https://muhoza-blaise.vercel.app and BASE_PATH=/ before building.
 
 ## Content
 

@@ -7,7 +7,7 @@
 Building useful products with AI, workflow automation, and modern web technologies.<br/>
 Based in Kigali, Rwanda. Open to collaboration worldwide.
 
-[Live portfolio](https://viper-one-pink.vercel.app/) · [WIMAZA Technologies](https://wimaza.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/ukomeye/) · [View CV](https://pdfhost.io/v/eD8pKwPAVc_DMB_CV) · [Get in touch](mailto:bdushime34@gmail.com)
+[Live portfolio](https://muhoza-blaise.vercel.app/) · [WIMAZA Technologies](https://wimaza.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/ukomeye/) · [View CV](https://pdfhost.io/v/eD8pKwPAVc_DMB_CV) · [Get in touch](mailto:bdushime34@gmail.com)
 
 [![Build and verification](https://github.com/mantis-rei/web-repo/actions/workflows/deploy.yml/badge.svg)](https://github.com/mantis-rei/web-repo/actions/workflows/deploy.yml)
 
@@ -57,6 +57,6 @@ The build checks Astro and TypeScript. Verification covers generated pages, loca
 
 The same Astro source powers every deployment. Publish the generated `dist` directory to use the current design; the root `Index.html` is a preserved legacy reference.
 
-The portfolio is live on Vercel at **[viper-one-pink.vercel.app](https://viper-one-pink.vercel.app/)**. The GitHub-linked Vercel project builds the same Astro source and publishes `dist`.
+The portfolio is live on Vercel at **[muhoza-blaise.vercel.app](https://muhoza-blaise.vercel.app/)**. The GitHub-linked Vercel project builds the same Astro source and publishes `dist`. The previous `viper-one-pink.vercel.app` address redirects to the new domain while preserving page paths and query strings.
 
 See the [development and deployment guide](docs/DEVELOPMENT.md) for hosting configuration, content editing, and project structure.
