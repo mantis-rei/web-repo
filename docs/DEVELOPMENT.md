@@ -1,6 +1,6 @@
 # Development and deployment
 
-A professional portfolio focused on AI engineering, automation, web products, and cloud computing, built with Astro, TypeScript, and locally hosted DM Sans and Space Grotesk fonts. Includes six indexable project pages, direct live-project links, filters, mobile navigation, a CV link, email copying, and a Kigali clock. The hero uses a mirrored portrait in a D-shaped frame: its straight left edge fades while the right arc stays solid. Motion respects reduced-motion preferences.
+A professional portfolio focused on AI engineering, automation, web products, and cloud computing, built with Astro, TypeScript, and locally hosted DM Sans and Space Grotesk fonts. Includes seven indexable project pages, direct live-project links, filters, mobile navigation, a CV link, email copying, and a Kigali clock. The hero uses a mirrored portrait in a D-shaped frame: its straight left edge fades while the right arc stays solid. The foreground profile card has fully rounded corners. Motion respects reduced-motion preferences.
 
 ## Development
 
@@ -15,7 +15,7 @@ npm run preview
 ```
 
 The default local URL is http://127.0.0.1:4321/web-repo/.
-The production build checks Astro and TypeScript first. Verification checks all eight HTML pages, local links/assets, SEO metadata, JSON-LD, sitemap, robots.txt, the supplied CV and project links, and optimized images.
+The production build checks Astro and TypeScript first. Verification checks all nine HTML pages, local links/assets, SEO metadata, JSON-LD, sitemap, robots.txt, the supplied CV and project links, and optimized images.
 
 Always deploy `dist` after building. The root `Index.html` is retained as a legacy reference and is not the Astro entry point or deployment output. GitHub, Vercel, and Netlify builds all use the same `src` files and current design.
 
@@ -30,9 +30,9 @@ netlify.toml sets BASE_PATH=/ and SITE_URL=https://viper1.netlify.app (the exist
 
 ## Vercel
 
-The requested production hostname is **muhoza-blaise.vercel.app**. It returned Vercel's DEPLOYMENT_NOT_FOUND response when checked; this does not reserve or guarantee the hostname. Account access is required to assign it and publish.
+The live production URL is **https://viper-one-pink.vercel.app/**, deployed by the GitHub-linked Vercel project **viper**. The profile card uses its original rounded corners, without the former concave cutout.
 
-Import mantis-rei/web-repo using the Astro framework preset and name the project muhoza-blaise. The included vercel.json builds and verifies the static site and publishes dist. On Vercel, config/deployment.mjs uses the root path and the project's production hostname for canonical URLs and sitemap links. Set SITE_URL=https://muhoza-blaise.vercel.app in Vercel for the chosen production alias, then deploy. If Vercel system hostname variables are unavailable, the configuration falls back to that requested origin.
+The included vercel.json builds and verifies the static site and publishes dist. On Vercel, config/deployment.mjs uses the root path and the project's production hostname for canonical URLs and sitemap links. For a custom build outside Vercel, set SITE_URL=https://viper-one-pink.vercel.app and BASE_PATH=/ before building. The previously requested muhoza-blaise.vercel.app alias has not been assigned.
 
 ## Content
 
@@ -47,7 +47,7 @@ Import mantis-rei/web-repo using the Astro framework preset and name the project
 - public/images/blaise-portrait.webp: optimized local copy of the supplied Cloudinary portrait.
 - public/images/pezaas-preview.webp and outreachhub-preview.webp: optimized copies of the supplied project screenshots. The OutreachHub browser chrome is cropped in CSS.
 
-Profile, education, WIMAZA role, Pezaas, OutreachHub, and VEO Stream use the supplied LinkedIn screenshots. Easy Fine-Tuner and Viper Trade Logger use their public GitHub READMEs. Study Craft AI uses the public repository description and README. The CEO role, company website, PDF Host CV, Pezaas and OutreachHub live URLs, and real screenshot previews were supplied directly by Blaise. The contact email comes from the previous portfolio.
+Profile, education, WIMAZA role, Pezaas, OutreachHub, and VEO Stream use the supplied LinkedIn screenshots. Easy Fine-Tuner uses its public GitHub README. Study Craft AI uses the public repository description and README. Kora Architect uses its public repository description; implementation languages are not asserted. MAZA TTS is Blaise's supplied name for the pocket-tts-by-Viper fork, with Kyutai's Pocket TTS credited as its foundation and README used for capability descriptions. The CEO role, company website, PDF Host CV, Pezaas and OutreachHub live URLs, and real screenshot previews were supplied directly by Blaise. The contact email comes from the previous portfolio.
 
 Pezaas and OutreachHub show supplied website screenshots. The other project artwork remains illustrative and is identified on detail pages. No unverified customer counts, testimonials, or performance metrics are included. Forked repositories are not presented as original work.
 

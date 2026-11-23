@@ -2,6 +2,7 @@ export type Project = {
   slug: string; title: string; category: string; description: string;
   tags: string[]; theme: string; label: string;
   github?: string; live?: string; intro: string;
+  upstream?: { name: string; url: string };
   preview?: { src: string; alt: string; width: number; height: number; cropTop?: number };
   challenge: string; approach: string; features: string[];
   source: string;
@@ -54,15 +55,27 @@ export const projects: Project[] = [
     source: 'Project scope is drawn from the supplied LinkedIn listing. The visual is an abstract illustration of the video generation workflow.',
   },
   {
-    slug: 'viper-trade-logger', title: 'Viper Trade Logger', category: 'PRODUCT ENGINEERING',
-    description: 'An execution-focused trading journal with rule-based setup cards and performance analytics.',
-    tags: ['React', 'TypeScript', 'Firebase'], theme: 'trading', label: 'Analytics interface concept',
-    github: 'https://github.com/mantis-rei/Viper-Td-Logger', live: 'https://viper-td-logger.vercel.app',
-    intro: 'A futures trading journal and analytics application, paired with an optional TradingView indicator. The project focuses on documenting execution and reviewing performance.',
-    challenge: 'A useful trading journal needs to capture the context behind a decision, keep setup rules visible, and make review accessible across devices.',
-    approach: 'I combined setup cards, risk calculations, screenshot storage, and performance analytics in a React and TypeScript application with Firebase cloud synchronization.',
-    features: ['Rule-based setup cards and risk-to-reward calculations.', 'Firebase Authentication and Cloud Firestore synchronization.', 'An IndexedDB screenshot vault for trade review.', 'Performance analytics and an optional Pine Script companion.'],
-    source: 'Project scope is based on the public repository README. The portfolio illustration uses sample chart data and does not represent trading results.',
+    slug: 'kora-architect', title: 'Kora Architect', category: 'DESIGN TECHNOLOGY',
+    description: 'From hand-drawn floorplans to editable parametric 3D models, with Rwanda-style roofs.',
+    tags: ['Floorplan sketches', 'Parametric 3D', 'Roof design'], theme: 'kora', label: 'Sketch-to-model illustration',
+    github: 'https://github.com/mantis-rei/Kora-Architect',
+    intro: 'Kora Architect explores an end-to-end system for converting hand-drawn floorplan sketches into fully editable parametric 3D models with Rwanda-style roofs.',
+    challenge: 'Moving from a floorplan sketch to an editable building model requires a bridge between a quick visual idea and a structured architectural representation.',
+    approach: 'The project centers on a sketch-to-model workflow, pairing parametric editing with roof forms relevant to Rwandan architecture.',
+    features: ['Hand-drawn floorplan sketches as the starting point.', 'Conversion into parametric 3D building models.', 'Editable model outputs.', 'Rwanda-style roof design.'],
+    source: 'Project scope is based on the public GitHub repository description. The visual illustrates the sketch-to-model concept and is not an application screenshot.',
+  },
+  {
+    slug: 'maza-tts', title: 'MAZA TTS', category: 'AI AUDIO',
+    description: 'A CPU-friendly text-to-speech exploration, based on Kyutai’s Pocket TTS.',
+    tags: ['Python', 'PyTorch', 'Text to speech'], theme: 'maza', label: 'Text-to-speech illustration',
+    github: 'https://github.com/mantis-rei/pocket-tts-by-Viper',
+    upstream: { name: 'Kyutai · Pocket TTS', url: 'https://github.com/kyutai-labs/pocket-tts' },
+    intro: 'MAZA TTS is my text-to-speech exploration based on an open-source fork of Kyutai’s Pocket TTS, a lightweight speech generation system designed to run on CPUs.',
+    challenge: 'Making speech generation easier to run locally means reducing dependence on dedicated GPU hardware and hosted inference services.',
+    approach: 'The linked repository provides a Pocket TTS foundation with Python and command-line interfaces, streamed audio generation, and a local HTTP interface.',
+    features: ['CPU-based text-to-speech generation.', 'Streaming audio output.', 'Python library and command-line interfaces.', 'A local HTTP server and web interface.'],
+    source: 'MAZA TTS is the name supplied by Blaise. The linked repository is a fork of Kyutai’s Pocket TTS; capabilities are drawn from its README. The visual is an illustration, not an application screenshot.',
   },
   {
     slug: 'study-craft-ai', title: 'Study Craft AI', category: 'AI FOR EDUCATION',

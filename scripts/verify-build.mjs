@@ -12,7 +12,7 @@ async function files(dir) {
 const all = await files(root);
 assert.doesNotMatch(await readFile('Index.html','utf8'), /cybersecurity|osint|ethical hacking|pentesting|security scanner/i, 'The preserved legacy HTML must not advertise retired topics');
 const htmlFiles = all.filter(file=>extname(file)==='.html');
-assert.equal(htmlFiles.length, 8, 'Home, six projects, and 404 must be generated');
+assert.equal(htmlFiles.length, 9, 'Home, seven projects, and 404 must be generated');
 for (const file of htmlFiles) {
   const html = await readFile(file,'utf8');
   assert.doesNotMatch(html, /cybersecurity|osint|ethical hacking/i, `${file}: retired profile topics must not be published`);
@@ -36,7 +36,7 @@ for (const file of htmlFiles) {
   for(const image of html.matchAll(/<img\b[^>]*>/g)) assert.match(image[0],/\balt="[^"]+"/,'Images need alt text');
 }
 const sitemap = await readFile(join(root,'sitemap-0.xml'),'utf8');
-assert.equal((sitemap.match(/<loc>/g)||[]).length,7,'Sitemap should index home and all six project pages');
+assert.equal((sitemap.match(/<loc>/g)||[]).length,8,'Sitemap should index home and all seven project pages');
 const robots=await readFile(join(root,'robots.txt'),'utf8');
 assert.ok(robots.includes(`${site}${prefix}sitemap-index.xml`),'Robots must point to the correct sitemap');
 assert.ok((await stat(join(root,'images/blaise-portrait.webp'))).size<500000,'Portrait should be optimized');
@@ -45,6 +45,10 @@ assert.ok(home.includes('https://pdfhost.io/v/eD8pKwPAVc_DMB_CV'),'The supplied 
 assert.ok(home.includes('Founder &amp; CEO') || home.includes('Founder & CEO'),'CEO role must be visible');
 for(const link of ['https://wimaza.vercel.app/','https://pezaas.vercel.app/','https://outreachhub-dc64f.web.app/','https://study-craft-ai-seven.vercel.app']) {
   assert.ok(home.includes(`href="${link}"`), `Homepage needs the supplied link: ${link}`);
+}
+for (const [slug, repository] of [['kora-architect','Kora-Architect'],['maza-tts','pocket-tts-by-Viper']]) {
+  const detail = await readFile(join(root, 'work', slug, 'index.html'), 'utf8');
+  assert.ok(detail.includes(`href="https://github.com/mantis-rei/${repository}"`), `${slug}: the supplied repository must be linked on the project page`);
 }
 for(const name of ['pezaas','outreachhub']) {
   assert.ok(home.includes(`images/${name}-preview.webp`),`${name} must use the real screenshot`);
